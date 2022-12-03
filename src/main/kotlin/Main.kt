@@ -1,7 +1,11 @@
-import years.twentytwo.solutions.FirstSolution
+import years.twentytwo.solutions.FirstSolution22
+import years.twentyone.solutions.FirstSolution21
 
 fun main() {
-    val allSolutions = mapOf(Pair("22", listOf(FirstSolution(), SecondSolution())))
+    val allSolutions = mapOf(
+        Pair("22", listOf(FirstSolution22(), SecondSolution22())),
+        Pair("21", listOf(FirstSolution21()))
+    )
     while(true) {
         print("Year: ")
         val year = readln()
@@ -17,5 +21,4 @@ fun main() {
             println("Solution: ${selectedSolutions[problem - 1].solve()}")
         }
     }
-
 }

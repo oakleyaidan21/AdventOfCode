@@ -6,9 +6,9 @@ import years.twentytwo.classes.Elf
 import java.io.File
 
 
-class FirstSolution: Solution<List<Int>> {
+class FirstSolution22: Solution<List<Int>> {
 
-    private var elves: List<Elf> = elvesFromFile(getInputFilePath("input1.txt") ?: "")
+    private var elves: List<Elf> = elvesFromFile(getInputFilePath("22/input1.txt") ?: "")
 
     override fun solve(): List<Int> {
         return listOf(part1(), part2())

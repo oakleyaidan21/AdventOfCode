@@ -3,9 +3,9 @@ import years.twentytwo.classes.RPSResultEnum
 import years.twentytwo.classes.RPSResultEnum.*
 import java.io.File
 
-class SecondSolution: Solution<List<Int>> {
+class SecondSolution22: Solution<List<Int>> {
 
-    private val inputPath = getInputFilePath("input2.txt") ?: ""
+    private val inputPath = getInputFilePath("22/input2.txt") ?: ""
 
     override fun solve(): List<Int> {
        return listOf(part1(), part2())
