@@ -21,9 +21,11 @@ class ThirdSolution22: Solution<List<Int>> {
             compartments[0].forEach {
                 charMap[it.getMapIndex()] = 1
             }
+            var found = false
             compartments[1].forEach {
                 if(charMap[it.getMapIndex()] == 1) {
-                    sum += it.getPriority()
+                    if(!found) sum += it.getPriority()
+                    found = true
                 }
             }
         }

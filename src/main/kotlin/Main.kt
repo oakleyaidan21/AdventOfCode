@@ -8,7 +8,7 @@ fun main() {
         Pair("21", listOf(FirstSolution21()))
     )
     while(true) {
-        print("Year: ")
+        print("Year (enter nothing for latest solution): ")
         val year = readln()
         if(year.isEmpty()) {
             println("Solution: ${allSolutions.get("22")?.last()?.solve()}")
