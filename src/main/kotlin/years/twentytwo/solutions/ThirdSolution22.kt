@@ -43,12 +43,10 @@ class ThirdSolution22: Solution<List<Int>> {
                 it.forEach {
                     if(foundCharMap[it.getMapIndex()] == 0) {
                         charMap[it.getMapIndex()] += 1
+                        if(charMap[it.getMapIndex()] == 3) sum += it.getPriority()
                     }
                     foundCharMap[it.getMapIndex()] = 1
                 }
-            }
-            charMap.forEachIndexed { index, it ->
-                if(it == 3) sum += index + 1
             }
         }
         return sum
