@@ -7,5 +7,5 @@ class ElfSection(input: String) {
 
     fun envelops(s: ElfSection) = lower <= s.lower && upper >= s.upper
 
-    fun overlaps(s: ElfSection) = (lower >= s.lower && lower <= s.upper) || (upper >= s.lower && upper <= s.upper)
+    fun overlaps(s: ElfSection) = upper >= s.lower && s.upper >= lower
 }
