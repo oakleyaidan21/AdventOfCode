@@ -5,15 +5,15 @@ import getInputFilePath
 import java.io.File
 import java.nio.charset.Charset
 
-class ThirdSolution22: Solution<List<Int>> {
+class ThirdSolution22: Solution<Int> {
 
     private val inputPath = getInputFilePath("22/input3.txt") ?: ""
 
-    override fun solve(): List<Int> {
+    override fun solutions(): List<Int> {
         return listOf(part1(), part2())
     }
 
-    private fun part1(): Int {
+    override fun part1(): Int {
         var sum = 0
         File(inputPath).forEachLine {
             val compartments = it.chunked((it.length + 1) / 2)
@@ -32,7 +32,7 @@ class ThirdSolution22: Solution<List<Int>> {
         return sum
     }
 
-    private fun part2(): Int {
+    override fun part2(): Int {
         val allRucksacks = String(File(inputPath).readBytes(), Charset.defaultCharset()).split("\n")
         val groups = allRucksacks.chunked(3)
         var sum = 0

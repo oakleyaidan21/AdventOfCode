@@ -6,15 +6,15 @@ import years.twentytwo.classes.Elf
 import java.io.File
 
 
-class FirstSolution22: Solution<List<Int>> {
+class FirstSolution22: Solution<Int> {
 
     private var elves: List<Elf> = elvesFromFile(getInputFilePath("22/input1.txt") ?: "")
 
-    override fun solve(): List<Int> {
+    override fun solutions(): List<Int> {
         return listOf(part1(), part2())
     }
 
-    private fun part1(): Int {
+    override fun part1(): Int {
         var maxCalories = -1
         elves.forEach {
             val calories = it.totalCalories()
@@ -23,7 +23,7 @@ class FirstSolution22: Solution<List<Int>> {
         return maxCalories
     }
 
-    private fun part2(): Int {
+    override fun part2(): Int {
         val sortedElves = elves.sortedBy { it.totalCalories() * -1 }
         val topElves = sortedElves.subList(0, 3)
         return topElves.foldRight(0) { item, total -> total + item.totalCalories() }

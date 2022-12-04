@@ -3,15 +3,15 @@ import years.twentytwo.classes.RPSResultEnum
 import years.twentytwo.classes.RPSResultEnum.*
 import java.io.File
 
-class SecondSolution22: Solution<List<Int>> {
+class SecondSolution22: Solution<Int> {
 
     private val inputPath = getInputFilePath("22/input2.txt") ?: ""
 
-    override fun solve(): List<Int> {
+    override fun solutions(): List<Int> {
        return listOf(part1(), part2())
     }
 
-    private fun part1(): Int {
+    override fun part1(): Int {
         var total = 0
         File(inputPath).forEachLine {
             val moves = it.split(" ")
@@ -23,7 +23,7 @@ class SecondSolution22: Solution<List<Int>> {
         return total
     }
 
-    private fun part2(): Int {
+    override fun part2(): Int {
         var total = 0
         File(inputPath).forEachLine {
             val moves = it.split(" ")

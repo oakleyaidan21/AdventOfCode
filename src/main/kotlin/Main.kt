@@ -11,7 +11,7 @@ fun main() {
         print("Year (enter nothing for latest solution): ")
         val year = readln()
         if(year.isEmpty()) {
-            println("Solution: ${allSolutions.get("22")?.last()?.solve()}")
+            println("Solution: ${allSolutions["22"]?.last()?.solutions()}")
             continue
         }
         val selectedSolutions = allSolutions.getOrDefault(year, listOf())
@@ -23,7 +23,7 @@ fun main() {
             }
             println("Select a problem:")
             val problem = Integer.parseInt(readln())
-            println("Solution: ${selectedSolutions[problem - 1].solve()}")
+            println("Solutions: ${selectedSolutions[problem - 1].solutions()}")
         }
     }
 }
