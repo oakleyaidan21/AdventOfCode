@@ -1,13 +1,11 @@
 package years.twentytwo.solutions
 
 import Solution
-import getInputFilePath
-import java.io.File
-import java.nio.charset.Charset
+import getLinesOfFile
 
 class ThirdSolution22: Solution<Int> {
 
-    private val inputPath = getInputFilePath("22/input3.txt") ?: ""
+    private val inputPath = "22/input3.txt"
 
     override fun solutions(): List<Int> {
         return listOf(part1(), part2())
@@ -15,7 +13,7 @@ class ThirdSolution22: Solution<Int> {
 
     override fun part1(): Int {
         var sum = 0
-        File(inputPath).forEachLine {
+        getLinesOfFile(inputPath)?.forEach {
             val compartments = it.chunked((it.length + 1) / 2)
             val charMap = createCharMap()
             compartments[0].forEach {
@@ -33,10 +31,10 @@ class ThirdSolution22: Solution<Int> {
     }
 
     override fun part2(): Int {
-        val allRucksacks = String(File(inputPath).readBytes(), Charset.defaultCharset()).split("\n")
-        val groups = allRucksacks.chunked(3)
+        val allRucksacks = getLinesOfFile(inputPath)
+        val groups = allRucksacks?.chunked(3)
         var sum = 0
-        groups.forEach { it ->
+        groups?.forEach { it ->
             val charMap = createCharMap()
             it.forEach { it ->
                 val foundCharMap = createCharMap()

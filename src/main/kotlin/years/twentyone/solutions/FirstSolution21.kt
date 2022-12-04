@@ -1,8 +1,7 @@
 package years.twentyone.solutions
 
 import Solution
-import getInputFilePath
-import java.io.File
+import getLinesOfFile
 
 class FirstSolution21 : Solution<Int> {
 
@@ -13,7 +12,7 @@ class FirstSolution21 : Solution<Int> {
     override fun part1(): Int {
         var prevLine = 0
         var count = -1
-        File(getInputFilePath("21/input1.txt")).forEachLine {
+        getLinesOfFile("21/input1.txt")?.forEach {
             if(Integer.parseInt(it) > prevLine) {
                 count += 1
             }

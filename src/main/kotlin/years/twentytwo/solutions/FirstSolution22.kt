@@ -1,14 +1,13 @@
 package years.twentytwo.solutions
 
 import Solution
-import getInputFilePath
+import getLinesOfFile
 import years.twentytwo.classes.Elf
-import java.io.File
 
 
 class FirstSolution22: Solution<Int> {
 
-    private var elves: List<Elf> = elvesFromFile(getInputFilePath("22/input1.txt") ?: "")
+    private var elves: List<Elf> = elvesFromFile("22/input1.txt")
 
     override fun solutions(): List<Int> {
         return listOf(part1(), part2())
@@ -32,10 +31,10 @@ class FirstSolution22: Solution<Int> {
     private fun elvesFromFile(fileName: String): List<Elf> {
         var elves = mutableListOf<Elf>()
         var currentElfFood = mutableListOf<Int>()
-        File(fileName).forEachLine {
+        getLinesOfFile(fileName)?.forEach {
             if(it.trim().isEmpty()) {
                 elves.add(Elf(currentElfFood))
-                currentElfFood = mutableListOf<Int>()
+                currentElfFood = mutableListOf()
             } else {
                 currentElfFood.add(Integer.parseInt(it))
             }
