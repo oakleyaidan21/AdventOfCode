@@ -1,12 +1,9 @@
-import years.twentytwo.solutions.FirstSolution22
 import years.twentyone.solutions.FirstSolution21
-import years.twentytwo.solutions.FifthSolution22
-import years.twentytwo.solutions.FourthSolution22
-import years.twentytwo.solutions.ThirdSolution22
+import years.twentytwo.solutions.*
 
 fun main() {
     val allSolutions = mapOf(
-        Pair("22", listOf(FirstSolution22(), SecondSolution22(), ThirdSolution22(), FourthSolution22(), FifthSolution22())),
+        Pair("22", listOf(FirstSolution22(), SecondSolution22(), ThirdSolution22(), FourthSolution22(), FifthSolution22(), SixthSolution())),
         Pair("21", listOf(FirstSolution21()))
     )
     while(true) {
