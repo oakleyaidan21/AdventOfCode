@@ -25,7 +25,7 @@ class SeventhSolution : Solution<Int> {
 
     override fun part2(): Int {
         val root = getLinesOfFile(inputPath)?.let { constructDirectoryTree(it) } ?: Directory("/")
-        val rootSize = root.getSize()
+        val rootSize = root.size
         val spaceNeededToFree = abs(CAPACITY - REQUIRED_SPACE - rootSize)
         val smallest = AtomicInt(Int.MAX_VALUE)
         findSmallestToRemove(root, smallest, spaceNeededToFree)
@@ -33,13 +33,13 @@ class SeventhSolution : Solution<Int> {
     }
 
     private fun findSmallestToRemove(root: Directory, smallest: AtomicInt, spaceNeeded: Int) {
-        val size = root.getSize()
+        val size = root.size
         if(size < smallest.value && size >= spaceNeeded) smallest.set(size)
         root.subDirectories.forEach {findSmallestToRemove(it.value, smallest, spaceNeeded)}
     }
 
     private fun findUnderThresholdFiles(root: Directory, count: AtomicInt) {
-        if(root.getSize() <= THRESHOLD) count.add(root.getSize())
+        if(root.size <= THRESHOLD) count.add(root.size)
         root.subDirectories.forEach { findUnderThresholdFiles(it.value, count )}
     }
 
@@ -81,18 +81,26 @@ class Directory(val name: String) {
     var parent: Directory? = null
     var subDirectories = mutableMapOf<String, Directory>()
     private var files = mutableMapOf<String, Int>()
+    var size = 0
+
     fun addDirectory(d: Directory) {
         subDirectories[d.name] = d
     }
+
+    private fun addSize(s : Int) {
+        if(parent != null) {
+            this.parent!!.addSize(s)
+        }
+        size += s
+    }
+
     fun addFile(f: File) {
         files[f.name] = f.size
-    }
-    fun getSize() : Int {
-        return files.toList().foldRight(0) { item, total -> total + item.second } + subDirectories.toList().foldRight(0) { item, total -> total + item.second.getSize() }
+        addSize(f.size)
     }
 
     override fun toString(): String {
-        return "$name ${files.toList()} ${getSize()}"
+        return "$name ${files.toList()} $size"
     }
 }
 
