@@ -3,7 +3,14 @@ import years.twentytwo.solutions.*
 
 fun main() {
     val allSolutions = mapOf(
-        Pair("22", listOf(FirstSolution22(), SecondSolution22(), ThirdSolution22(), FourthSolution22(), FifthSolution22(), SixthSolution())),
+        Pair("22", listOf(
+            FirstSolution22(),
+            SecondSolution22(),
+            ThirdSolution22(),
+            FourthSolution22(),
+            FifthSolution22(),
+            SixthSolution(),
+            SeventhSolution())),
         Pair("21", listOf(FirstSolution21()))
     )
     while(true) {
