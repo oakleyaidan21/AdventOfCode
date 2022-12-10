@@ -5,7 +5,7 @@ import getLinesOfFile
 import kotlin.math.abs
 
 
-class SeventhSolution : Solution<Int> {
+class SeventhSolution22 : Solution<Int> {
     val CAPACITY = 70000000
     val THRESHOLD = 100000
     val REQUIRED_SPACE = 30000000

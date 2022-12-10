@@ -3,7 +3,7 @@ package years.twentytwo.solutions
 import Solution
 import getLinesOfFile
 
-class SixthSolution : Solution<Int> {
+class SixthSolution22 : Solution<Int> {
     private val inputPath = "22/input6.txt"
     override fun solutions(): List<Int> {
         return listOf(part1(), part2())

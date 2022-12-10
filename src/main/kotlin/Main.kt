@@ -9,8 +9,10 @@ fun main() {
             ThirdSolution22(),
             FourthSolution22(),
             FifthSolution22(),
-            SixthSolution(),
-            SeventhSolution())),
+            SixthSolution22(),
+            SeventhSolution22(),
+            EighthSolution22()
+        )),
         Pair("21", listOf(FirstSolution21()))
     )
     while(true) {
